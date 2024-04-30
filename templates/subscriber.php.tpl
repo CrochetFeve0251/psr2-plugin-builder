@@ -1,8 +1,8 @@
 <?php
 namespace {{ namespace }};
-use {{ base_namespace }}Dependencies\LaunchpadCore\EventManagement\SubscriberInterface;
+use {{ base_namespace }}Dependencies\LaunchpadCore\EventManagement\ClassicSubscriberInterface;
 
-class {{ class_name }} implements SubscriberInterface {
+class {{ class_name }} implements ClassicSubscriberInterface {
 
     /**
      * Returns an array of events that this subscriber wants to listen to.
@@ -22,7 +22,7 @@ class {{ class_name }} implements SubscriberInterface {
      *
      * @return array
      */
-    public function get_subscribed_events() {
+    public static function get_subscribed_events() {
         return [
 
         ];
