@@ -1,8 +1,8 @@
 <?php
 namespace {{ namespace }};
-use {{ base_namespace }}Dependencies\LaunchpadCore\EventManagement\ClassicSubscriberInterface;
+use {{ base_namespace }}Dependencies\LaunchpadCore\EventManagement\OptimizedSubscriberInterface;
 
-class {{ class_name }} implements ClassicSubscriberInterface {
+class {{ class_name }} implements OptimizedSubscriberInterface {
 
     /**
      * Returns an array of events that this subscriber wants to listen to.
