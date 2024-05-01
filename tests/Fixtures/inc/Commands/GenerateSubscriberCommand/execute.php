@@ -198,5 +198,20 @@ return [
                 'plugin_content' => file_get_contents(__DIR__ . '/files/root_plugin.php'),
             ]
         ],
+        'subscriberCommonWithWeirdProviderShouldBeAddedAsCommonByNotBinded' => [
+            'config' => [
+                'class' => 'PSR2Plugin/Engine/Test/MySubscriber',
+                'plugin_path' => '/inc/Plugin.php',
+                'provider_path' => '/inc/Engine/Test/ServiceProvider.php',
+                'provider_exists' => true,
+                'parameters' => ' --type common',
+            ],
+            'expected' => [
+                'path' => '/inc/Engine/Test/MySubscriber.php',
+                'content' => file_get_contents(__DIR__ . '/files/subscriber.php'),
+                'provider_content' => file_get_contents(__DIR__ . '/files/provider.php'),
+                'plugin_content' => file_get_contents(ROCKER_LAUNCHER_BUILDER_TESTS_FIXTURES_DIR . '/files/plugin.php'),
+            ]
+        ],
     ]
 ];

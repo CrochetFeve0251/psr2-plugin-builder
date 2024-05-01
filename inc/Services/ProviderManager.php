@@ -113,7 +113,16 @@ class ProviderManager
             $provider_content,
             $content );
 
+        if(! key_exists('indents', $content)) {
+            return;
+        }
+
         $indents = $content['indents'];
+
+        if(! key_exists('content', $content)) {
+            return;
+        }
+
         if(! trim($content['content'], " \n")) {
             $content['content'] = '';
         } else {

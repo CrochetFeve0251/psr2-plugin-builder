@@ -79,6 +79,19 @@ return [
                 'content' => file_get_contents(__DIR__ . '/files/autoresolver_provider.php'),
                 'plugin_content' => file_get_contents(__DIR__ . '/files/configs/providers.php'),
             ]
+        ],
+        'StaussComposerAndProviderWithShortParamShouldCreateTheFileAndAddItToConfigs' => [
+            'config' => [
+                'custom_composer' => file_get_contents(ROCKER_LAUNCHER_BUILDER_TESTS_FIXTURES_DIR . '/files/strauss_composer_autoresolver.json'),
+                'parameters' => ' -t a',
+                'class' => 'PSR2Plugin/Engine/Test/MyProvider',
+                'plugin_path' => '/configs/providers.php'
+            ],
+            'expected' => [
+                'path' => '/inc/Engine/Test/MyProvider.php',
+                'content' => file_get_contents(__DIR__ . '/files/autoresolver_provider.php'),
+                'plugin_content' => file_get_contents(__DIR__ . '/files/configs/providers.php'),
+            ]
         ]
     ]
 ];

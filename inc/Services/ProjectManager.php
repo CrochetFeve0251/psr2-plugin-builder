@@ -74,7 +74,31 @@ class ProjectManager
         $content = $this->filesystem->read(self::COMPOSER_FILE);
         $json = json_decode($content,true);
 
-        return $json && key_exists('extra', $json) && key_exists('mozart', $json['extra']) && key_exists('packages', $json['extra']['mozart']) && in_array('wp-launchpad/autoresolver', $json['extra']['mozart']['packages']);
+        if (! $json ) {
+            return false;
+        }
+
+        return $this->is_detected($json, 'wp-launchpad/autoresolver');
+    }
+
+    protected function is_detected(array $json , string $library)
+    {
+
+        if( ! key_exists('extra', $json)) {
+            return false;
+        }
+
+
+        foreach (['strauss', 'mozart'] as $config) {
+            if (key_exists($config, $json['extra']) &&
+                key_exists('packages', $json['extra'][$config]) &&
+                in_array($library, $json['extra'][$config]['packages'])
+            ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
