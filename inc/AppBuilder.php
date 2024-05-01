@@ -51,7 +51,7 @@ class AppBuilder
 
         $configs = (new ConfigurationResolver($filesystem, $project_dir))->get_configuration();
         foreach ($service_providers as $service_provider) {
-            $instance = new $service_provider($configs, $filesystem, __DIR__ . '/../');
+            $instance = new $service_provider($configs, $filesystem, __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
             if(! $instance instanceof ServiceProviderInterface){
                 continue;
             }
