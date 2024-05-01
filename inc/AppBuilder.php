@@ -28,14 +28,13 @@ class AppBuilder
      */
     public static function init(string $project_dir, array $service_providers = [])
     {
-        $app = new App('Rocket Launcher', "0.0.3", self::$is_test_mode ? function() {} : null);
+        $app = new App('Launchpad', "1.0.4", self::$is_test_mode ? function() {} : null);
         $app->logo("
-  ____            _        _     _                           _               
- |  _ \ ___   ___| | _____| |_  | |    __ _ _   _ _ __   ___| |__   ___ _ __ 
- | |_) / _ \ / __| |/ / _ \ __| | |   / _` | | | | '_ \ / __| '_ \ / _ \ '__|
- |  _ < (_) | (__|   <  __/ |_  | |__| (_| | |_| | | | | (__| | | |  __/ |   
- |_| \_\___/ \___|_|\_\___|\__| |_____\__,_|\__,_|_| |_|\___|_| |_|\___|_|   
-                                                                             ");
+  _                      _                  _ 
+ | |   __ _ _  _ _ _  __| |_  _ __  __ _ __| |
+ | |__/ _` | || | ' \/ _| ' \| '_ \/ _` / _` |
+ |____\__,_|\_,_|_||_\__|_||_| .__/\__,_\__,_|
+                             |_|              ");
 
 
 
@@ -52,7 +51,7 @@ class AppBuilder
 
         $configs = (new ConfigurationResolver($filesystem, $project_dir))->get_configuration();
         foreach ($service_providers as $service_provider) {
-            $instance = new $service_provider($configs, $filesystem, __DIR__ . '/../');
+            $instance = new $service_provider($configs, $filesystem, __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
             if(! $instance instanceof ServiceProviderInterface){
                 continue;
             }
