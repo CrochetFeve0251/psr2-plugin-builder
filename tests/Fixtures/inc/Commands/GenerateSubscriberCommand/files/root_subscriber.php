@@ -1,8 +1,8 @@
 <?php
 namespace PSR2Plugin;
-use PSR2Plugin\Dependencies\LaunchpadCore\EventManagement\SubscriberInterface;
+use PSR2Plugin\Dependencies\LaunchpadCore\EventManagement\ClassicSubscriberInterface;
 
-class MySubscriber implements SubscriberInterface {
+class MySubscriber implements ClassicSubscriberInterface {
 
     /**
      * Returns an array of events that this subscriber wants to listen to.
@@ -22,7 +22,7 @@ class MySubscriber implements SubscriberInterface {
      *
      * @return array
      */
-    public function get_subscribed_events() {
+    public static function get_subscribed_events() {
         return [
 
         ];
