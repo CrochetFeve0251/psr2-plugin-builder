@@ -1,8 +1,8 @@
 <?php
 namespace PSR2Plugin\Engine\Test;
-use PSR2Plugin\Dependencies\LaunchpadCore\EventManagement\ClassicSubscriberInterface;
+use PSR2Plugin\Dependencies\LaunchpadCore\EventManagement\OptimizedSubscriberInterface;
 
-class MySubscriber implements ClassicSubscriberInterface {
+class MySubscriber implements OptimizedSubscriberInterface {
 
     /**
      * Returns an array of events that this subscriber wants to listen to.
