@@ -100,6 +100,8 @@ class GenerateSubscriberCommand extends Command
     {
         $io = $this->app()->io();
 
+        $name = $this->class_generator->maybe_add_default($name);
+
         $path = $this->class_generator->generate('subscriber.php.tpl', $name);
 
         if( ! $path ) {

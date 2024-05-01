@@ -183,5 +183,20 @@ return [
                 'plugin_content' => file_get_contents(ROCKER_LAUNCHER_BUILDER_TESTS_FIXTURES_DIR . '/files/plugin.php'),
             ]
         ],
+        'subscriberNoNamespaceShouldHaveDefaultOne' => [
+            'config' => [
+                'class' => 'MySubscriber',
+                'plugin_path' => '/inc/Plugin.php',
+                'provider_path' => '/inc/ServiceProvider.php',
+                'provider_exists' => true,
+                'parameters' => '',
+            ],
+            'expected' => [
+                'path' => '/inc/MySubscriber.php',
+                'content' => file_get_contents(__DIR__ . '/files/root_subscriber.php'),
+                'provider_content' => file_get_contents(__DIR__ . '/files/root_provider.php'),
+                'plugin_content' => file_get_contents(__DIR__ . '/files/root_plugin.php'),
+            ]
+        ],
     ]
 ];

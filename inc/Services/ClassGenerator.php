@@ -75,7 +75,18 @@ class ClassGenerator
      * @return string
      */
     public function get_fullname( string $name ): string {
-        return '\\' . str_replace('/', '\\', $name);
+
+        $base = $this->configurations->getBaseNamespace();
+
+        $base = rtrim($base, '\\');
+
+        $name = '\\' . str_replace('/', '\\', $name);
+
+        if(strpos($name, $base) !== false) {
+            return $name;
+        }
+
+        return $base . $name;
     }
 
     /**
@@ -166,5 +177,21 @@ class ClassGenerator
     public function snake_to_camel_case(string $string) {
         $result = str_replace('_', '', ucwords($string, '_'));
         return lcfirst($result);
+    }
+
+    /**
+     * Add the default to the name if it is missing.
+     *
+     * @param string $name Name from the class.
+     * @return string
+     */
+    public function maybe_add_default(string $name)
+    {
+        $base_namespace = trim($this->configurations->getBaseNamespace(), '\\');
+        if(strpos($name, $base_namespace) !== false) {
+            return $name;
+        }
+
+        return $base_namespace . DIRECTORY_SEPARATOR . $name;
     }
 }
