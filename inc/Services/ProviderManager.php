@@ -112,6 +112,7 @@ class ProviderManager
 
         $indents = key_exists('indents', $content) ? $content['indents'] : '';
 
+
         if(! key_exists('content', $content)) {
             return;
         }
