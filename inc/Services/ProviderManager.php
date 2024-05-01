@@ -100,9 +100,6 @@ class ProviderManager
      * @throws \League\Flysystem\FileNotFoundException
      */
     public function add_class(string $path, string $class) {
-        if( $this->project_manager->is_resolver_present() ) {
-            return;
-        }
         $provider_path = $this->class_generator->generate_path( $path. '/ServiceProvider' );
         $provider_content = $this->filesystem->read( $provider_path );
         $provider_content = $this->remove_anonymous_functions($provider_content);
@@ -113,11 +110,7 @@ class ProviderManager
             $provider_content,
             $content );
 
-        if(! key_exists('indents', $content)) {
-            return;
-        }
-
-        $indents = $content['indents'];
+        $indents = key_exists('indents', $content) ? $content['indents'] : '';
 
         if(! key_exists('content', $content)) {
             return;
