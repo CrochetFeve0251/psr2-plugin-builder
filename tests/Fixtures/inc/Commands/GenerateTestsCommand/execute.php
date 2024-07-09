@@ -42,8 +42,7 @@ return [
                         'tests/Integration/inc/Test/MyClass/myMethod.php' => [
                             'exists' => false,
                             'content' => file_get_contents(__DIR__ . '/files/integration/default.php')
-                        ],
-
+                        ]
                 ]
             ],
             'expected' => [
@@ -60,6 +59,10 @@ return [
                             'exists' => true,
                             'content' => file_get_contents(__DIR__ . '/files/integration/default.php')
                         ],
+                    'composer.json' => [
+                        'exists' => true,
+                        'content' => file_get_contents(ROCKER_LAUNCHER_BUILDER_TESTS_FIXTURES_DIR . '/files/composer.php'),
+                    ]
                 ]
             ]
         ],

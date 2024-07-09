@@ -1,5 +1,6 @@
 // directories
 tests export-ignore
+bin export-ignore
 
 // files
 .gitattributes export-ignore

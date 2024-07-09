@@ -36,6 +36,10 @@ class ProjectManager
      */
     public function add_external_test_group(string $group) {
 
+        if ( ! $group ) {
+            return false;
+        }
+
         if( ! $this->filesystem->has(self::COMPOSER_FILE)) {
             return false;
         }
