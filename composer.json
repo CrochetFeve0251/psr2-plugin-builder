@@ -1,0 +1,35 @@
+{
+  "name": "wp-launchpad/cli",
+  "description": "CLI library for the Launchpad framework",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "type": "library",
+  "authors": [
+    {
+      "name": "coquardcyr",
+      "email": "coquardcyr@gmail.com"
+    }
+  ],
+  "require": {
+    "league/flysystem": "^1.1.10",
+    "adhocore/cli": "^v0.9.0",
+    "ext-json": "*",
+    "league/event": "^3.0"
+  },
+  "require-dev": {
+    "brain/monkey": "^2.0",
+    "phpunit/phpunit": "^7.5 || ^8 || ^9",
+    "wp-media/phpunit": "^3.0",
+    "mikey179/vfsstream": "^1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "LaunchpadCLI\\": "inc/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LaunchpadCLI\\Tests\\": "tests/"
+    }
+  }
+}
