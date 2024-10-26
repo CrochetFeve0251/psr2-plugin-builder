@@ -1,7 +1,6 @@
 {
   "name": "wp-launchpad/cli",
   "description": "CLI library for the Launchpad framework",
-  "minimum-stability": "stable",
   "license": "proprietary",
   "type": "library",
   "authors": [
