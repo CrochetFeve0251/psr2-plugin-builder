@@ -30,5 +30,12 @@
     "psr-4": {
       "LaunchpadCLI\\Tests\\": "tests/"
     }
+  },
+  "scripts": {
+    "test-unit": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist",
+    "test-integration": "\"vendor/bin/phpunit\" --testsuite integration --colors=always --configuration tests/Integration/phpunit.xml.dist --exclude-group AdminOnly",
+    "run-tests": [
+      "@test-integration"
+    ]
   }
 }
