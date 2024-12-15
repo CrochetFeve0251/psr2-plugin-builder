@@ -40,7 +40,7 @@
     },
     "extra": {
         "branch-alias": {
-            "feature/ll-subscribers": "3.1-dev"
+            "dev-feature/ll-subscribers": "3.1-dev"
         }
     }
 }
