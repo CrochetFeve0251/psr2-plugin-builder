@@ -1,41 +1,46 @@
 {
-  "name": "wp-launchpad/cli",
-  "description": "CLI library for the Launchpad framework",
-  "license": "proprietary",
-  "type": "library",
-  "authors": [
-    {
-      "name": "coquardcyr",
-      "email": "coquardcyr@gmail.com"
+    "name": "wp-launchpad/cli",
+    "description": "CLI library for the Launchpad framework",
+    "license": "proprietary",
+    "type": "library",
+    "authors": [
+        {
+            "name": "coquardcyr",
+            "email": "coquardcyr@gmail.com"
+        }
+    ],
+    "require": {
+        "league/flysystem": "^1.1.10",
+        "adhocore/cli": "^v0.9.0",
+        "ext-json": "*",
+        "league/event": "^3.0"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.0",
+        "phpunit/phpunit": "^7.5 || ^8 || ^9",
+        "wp-media/phpunit": "^3.0",
+        "mikey179/vfsstream": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaunchpadCLI\\": "inc/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaunchpadCLI\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test-unit": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist",
+        "test-integration": "\"vendor/bin/phpunit\" --testsuite integration --colors=always --configuration tests/Integration/phpunit.xml.dist --exclude-group AdminOnly",
+        "run-tests": [
+            "@test-integration"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "feature/ll-subscribers": "3.1-dev"
+        }
     }
-  ],
-  "require": {
-    "league/flysystem": "^1.1.10",
-    "adhocore/cli": "^v0.9.0",
-    "ext-json": "*",
-    "league/event": "^3.0"
-  },
-  "require-dev": {
-    "brain/monkey": "^2.0",
-    "phpunit/phpunit": "^7.5 || ^8 || ^9",
-    "wp-media/phpunit": "^3.0",
-    "mikey179/vfsstream": "^1.6"
-  },
-  "autoload": {
-    "psr-4": {
-      "LaunchpadCLI\\": "inc/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "LaunchpadCLI\\Tests\\": "tests/"
-    }
-  },
-  "scripts": {
-    "test-unit": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist",
-    "test-integration": "\"vendor/bin/phpunit\" --testsuite integration --colors=always --configuration tests/Integration/phpunit.xml.dist --exclude-group AdminOnly",
-    "run-tests": [
-      "@test-integration"
-    ]
-  }
 }
